@@ -1,0 +1,47 @@
+
+
+<h2 class="home-title">Choose a car and rent it</h2>
+
+
+<form action="/searchingModel" method="GET" class="form-inline my-2 my-lg-0">
+  <fieldset>
+    <legend>Search by model</legend>
+    <input type="text" name="model" class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
+    <input type="submit" class="btn btn-outline-success my-2 my-sm-0"><br>
+</fieldset>
+</form>
+
+<br><br><br><br><br><br>
+      
+    {{#each allCar}}
+    <div class="car-section row">
+        <img class="home-page-imgages rounded float-left"src="{{this.image}}">
+        <div class="col-md-2 col-sm12">
+            <h5>Model:</h5>
+            <p>{{this.model}}</p>
+        </div>
+        <div class="col-md-2 col-sm12">
+            <h5>Price</h5>
+            <p>{{this.price}}</p>
+        </div>
+        <div class="col-md-2 col-sm12">
+            <h5>Year</h5>
+            <p>{{this.year}}</p>
+        </div>
+        <div class="col-md-2 col-12">
+            <a href="/carDetails/{{this._id}}"><b>TAKE THIS CAR</b></a>
+            {{!-- <button ng-click="controllers.admin.remove($index)">remove</button> --}}
+        </div>
+        
+    </div>
+    {{/each}}
+
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="?page={{pageObj.prevPage}}">Prev page</a></li>
+        <li class="page-item" ><a class="page-link" href="?page={{pageObj.nextPage}}">Next page</a></li>
+      </ul>
+
+
+
+
+
